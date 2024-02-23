@@ -1,0 +1,23 @@
+ 화면돌리기
+
+DeviceRotation landscape = new DeviceRotation(0,0,90);
+driver.rotate(landscape);
+
+------------------------------------------
+
+복붙
+driver.setClipboardText("안녕");
+sendKeys(getClipboardText());
+
+------------------------------------------
+
+driver.pressKey(new KeyEvent(AndroidKey.HOME));
+driver.pressKey(new KeyEvent(AndroidKey.BACK));		//appium 으로부터 import
+
+-----------------------------------------
+
+app package (전체 어플) 의 app activity (특정페이지) 바로열기
+맥락이없기때문에 Functional test 에서 추천되진않음 
+
+Activity activity = new Activity("package","Activity");		//package, activity 에관한정보는 구글링을통해 cmd 로찾을것
+driver.StartActivity(activity);

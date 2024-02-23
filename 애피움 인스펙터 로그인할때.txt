@@ -1,0 +1,4 @@
+appium:app: app path
+appium:deviceName: 안드로이드 스튜디오에서 가상기기 이름
+platformName: android
+appium:automationName: UiAutomator2

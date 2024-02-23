@@ -1,0 +1,39 @@
+CMD 에서 Appium Server 실행시키기
+
+appium driver list 				//driver installation 상태확인
+appium driver install uiautomator2 		//install
+appium 						//Appium Server 실행
+
+-------------------------------------------------------
+
+Programically Appium Server "실행"하기
+
+AppiumServiceBuilder service = new AppiumServiceBuilder()
+.withAppiumJs(new File("C:\Users\gjdnd\AppData\Roaming\npm\node_modules\appium\build\lib\main.js"))
+.withIPAddress("127.0.0.1").usingPort(4723).build();
+
+service.start();
+
+service.stop();		//끝에
+
+--------------------------------------------------------
+
+Driver Object "설정"하기
+
+//Appium code => Appium Server
+
+UiAutomator2Options options = new UiAutomator2Options();
+options.setDeviceName("Emulator_Name");
+options.setApp("App_path")
+AndroidDriver driver = new AndroidDriver(new URL("https://127.0.0.1:4723"), options);	//첫번째 arg는 에피움 server url
+
+driver.quit();
+
+-------------------------------------------------------
+
+
+UiAutomator2Options options = new Ui Automator2Options();
+options.setDeviceName("");
+options.setChromeDriverExecutable("exe_file 경로");
+options.setCapability("browserName", "Chrome");
+AndroidDriver driver = new AndroidDriver(new URL(""), options);

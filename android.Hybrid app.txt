@@ -1,0 +1,22 @@
+native 앱에서 hybrid 앱으로 전환되면 context 를 바꿔줘야함 	// Selenium WebDriver 을 쓸수있도록
+
+Set<String> contexts = driver.getContextHandles();
+
+for(String contextname: contexts){
+	System.out.println(contextname);		// getting context names
+}
+driver.context("gottenContextName");
+
+-----------------------------------------------------------
+
+do some work
+
+driver.findElement(By.id("idname")).sendKeys();
+driver.findElement(By.id("idname")).sendKeys(Keys.ENTER);
+driver.pressKey(new KeyEvent(AndroidKey.BACK));
+
+------------------------------------------------------------
+
+driver.context("BackToOriginalContextName");
+
+

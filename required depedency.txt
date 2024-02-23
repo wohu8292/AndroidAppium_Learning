@@ -1,0 +1,6 @@
+java client (appium 으로 검색)
+testNG
+
+FROM Eclipse Marketplace
+TestNG for Eclipse
+

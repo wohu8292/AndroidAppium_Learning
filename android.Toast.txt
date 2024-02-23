@@ -1,0 +1,2 @@
+driver.findElement(By.xpath"//android.widget.Toast[1]").getAttribute("name");
+Assert.assertEquals(toastMessage, "Please enter your name");

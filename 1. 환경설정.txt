@@ -1,0 +1,35 @@
+작성한 테스트케이스 -> Appium Server (on Node, in Json form) -> 
+Android (UIAutomator2 framework given by Android) or IOS (XCUITest framework given by IOS) 
+
+Android SDK 의 android emulator 를 가상의 기기로 사용함 // IOS 같은경우는 simulator
+
+* NodeJs, SDK 얘들은 appium server 가 알아먹을수있게 global variable 로 설정되있어야함 (system = environment= global variable)
+환경변수에 추가한것들	// JAVA, ANDRIOD, NODE
+1. Android: C:\Users\gjdnd\AppData\Local\Android\Sdk
+2. Node: C:\Program Files\nodejs
+3. JAVA: C:\Program Files\Java\jdk-21\
+
+Appium Server 는 node.js 위에 설립되있기 때문에 npm 커맨드로 설치함
+npm instsall -g appium@next	// -g 는 global, @next 는 appium 버전2
+
+eclipse 에서 프로젝트만들때 quickstart 로 maven 프로젝트 생성함 (selenium 이랑 같음)	
+mvn 에서 java clinet, tentNG jar 영입	//java client 는 virtual 환경을위한 java
+eclipse marketplace 에서 testNG for Eclipse 설치하고 버전확인 
+
+appiumJS 파일은 (C:\Users\gjdnd\AppData\Roaming\npm\node_modules\appium\build\lib\main.js)
+
+
+local virtual device에다가 앱 다운로드할때
+1. cmd 켠다
+2. C:\Users\gjdnd\AppData\Local\Android\Sdk\platform-tools (abd.exe 사용하기 위해서, it comes with SDK download)
+3. adb install 파일path
+
+---------------------------------------------------------
+adb					// adb 란 command line tool that you can use to debug your Android phone
+adb deivces				// 기기의현재상태
+adb -s 기기명 install 앱경로		// 선택해서 깔때
+adb kill-server 그리고 adb start-server	// offline 앱 on and off
+
+
+---------------------------------------------------------
+Appium inspector 사용할때는 cmd 에서 로컬로 appium 실행시켜야됨

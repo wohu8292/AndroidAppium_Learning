@@ -1,0 +1,51 @@
+Element 선택할때는 무조건 AppiumBy.accessibilityId 부터 선택
+
+******appium github gesture 문서 읽어보길
+https://github.com/appium/appium-uiautomator2-driver/blob/master/docs/android-mobile-gestures.md
+
+
+롱클릭 (direction is not mendatory)
+((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
+    "elementId", ((RemoteWebElement) element).getId(), 'duration': 2000
+));	
+
+자바에서 자바스크립트로 보낼때는 (RemoteWebElement) 로 캐스팅함
+
+
+
+
+-----------------------------------------
+스크롤 (direction is mandatory)
+
+첫번째 방법	//based on element
+driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"WebView\"));"));
+
+두번째방법	//based on coordinates
+github 문서가서
+		boolean canScrollMore;
+		do {
+			canScrollMore=(Boolean)((JavascriptExecutor)driver).executeScript("mobile: scrollGesture", =ImmutableMap.of(
+					"left", 100, "top", 100, "width", 200, "height", 200,
+				    "direction", "down",
+				    "percent", 3.0));
+		}while(canScrollMore);
+
+-------------------------------------------
+스와이프 (direction is mandaory)
+
+스와이프했을때 focusable 이 현재 true , 과거 false 인지 체크
+
+((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+	elementId", ((RemoteWebElement) firstimage).getId()
+    "direction", "left",
+    "percent", 0.75
+));
+
+--------------------------------------------
+드래그 
+
+((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
+    "elementId", ((RemoteWebElement) element).getId(),
+    "endX", 100,
+    "endY", 100
+));
